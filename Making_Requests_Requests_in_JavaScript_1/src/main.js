@@ -10,8 +10,8 @@ function getAllNames() {
     for (let i = 0; i < response.length; i++){
       result += response.name
     }
+    console.log(result)
   })
-  console.log(result)
 }
 
 function getConstellationsByQuadrant(quadrant) {}
