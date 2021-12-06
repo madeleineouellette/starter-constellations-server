@@ -3,18 +3,21 @@ const BASE_URL = "http://localhost:5000";
 
 function getAllNames() {
   axios
-  .get(BASE_URL)
+  .get(BASE_URL + "/constellations")
   .then((response) => {
-    console.log(`${BASE_URL}${constellations}`);
-    const result = []
-    for (let i = 0; i < response.length; i++){
-      result += response.name
-    }
+    const result = response.data.map((data) => data.name)
     console.log(result)
   })
 }
 
-function getConstellationsByQuadrant(quadrant) {}
+function getConstellationsByQuadrant(quadrant) {
+  axios
+  .get(BASE_URL + "/constellations")
+  .then((response) => {
+    const result = response.data.filter((data) => data.quadrant === quadrant)
+    console.log(result)
+  })
+}
 
 module.exports = {
   getAllNames,
