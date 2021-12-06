@@ -1,7 +1,22 @@
 const axios = require("axios");
-
 const url = "http://localhost:9000/constellations";
+
 axios
+  .get(url)
+  .then(({ data }) => {
+    return data.find(({ name }) => name === leo.name);
+  })
+  .then((exists) => {
+    if (exists) throw `Constellation "${leo.name}" already exists.`;
+    return axios
+      .post(constellationsUrl, leo)
+      .then(({ data }) => console.log(data));
+  })
+  .catch(console.log);
+
+
+
+/*axios
   .get(url)
   .then((response) => {
     console.log(response.status);
@@ -12,7 +27,7 @@ axios
     console.log(error.message);
   });
 
-/*const url = "http://localhost:9000/constellations";
+const url = "http://localhost:9000/constellations";
 axios
   .get(url)
   .then((response) => {
@@ -23,9 +38,9 @@ axios
   })
   .catch((error) => {
     console.log(error.message);
-  });*/
- /* const url = "http://localhost:9000/constellations";
- /* axios
+  });
+ const url = "http://localhost:9000/constellations";
+ axios
     .post(url, {
       name: "Ara",
       meaning: "Altar",
@@ -34,17 +49,17 @@ axios
     })
     .then((response) => {
       console.log(response.data);
-    });*/
+    });
 
- //   const idToDelete = "33sJSj-";
- //   axios.delete(`${url}${idToDelete}`);
+    const idToDelete = "33sJSj-";
+   axios.delete(`${url}${idToDelete}`);
 
  
  
-//const idToDelete = "s2dJ2op";
-// axios.delete(`${url}/${idToDelete}`);
-// axios.get(`${url}/${idToDelete}`);
+const idToDelete = "s2dJ2op";
+ axios.delete(`${url}/${idToDelete}`);
+ axios.get(`${url}/${idToDelete}`);
 
-//axios.delete("http://localhost:9000/constellations/33sJSj-")
+axios.delete("http://localhost:9000/constellations/33sJSj-")*/
 
     
