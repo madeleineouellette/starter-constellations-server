@@ -5,7 +5,7 @@ function getAllNames() {
   axios
   .get(BASE_URL)
   .then((response) => {
-    console.log(BASE_URL);
+    console.log(`${BASE_URL}${constellations}`);
     const result = []
     for (let i = 0; i < response.length; i++){
       result += response.name
