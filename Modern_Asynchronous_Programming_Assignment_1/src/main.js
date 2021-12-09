@@ -5,8 +5,14 @@ function isValid({ id, name, meaning, quadrant, starsWithPlanets }) {
   return id && name && meaning && quadrant && starsWithPlanets;
 }
 
-function update(constellation) {}
+function update(constellation) {
 
-function bulkImport(constellations) {}
+
+}
+
+function bulkImport(constellations) {
+
+  
+}
 
 module.exports = { bulkImport, update };
